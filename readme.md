@@ -1,4 +1,4 @@
-# gen-dataset
+# pdb-dataset
 
 Instead of focusing on the full atomic details, we chose to represent protein structures as **2D pairwise distance matrices** between **α-carbons** on the protein backbone. This approach allows us to retain essential structural information while simplifying the data we work with.
 
