@@ -1,6 +1,6 @@
 # pdb-dataset
 
-We generate from the downloaded full-atom protein files, a distance matrix representation of their tertiary structure.
+Generate from the full-atom protein files, a distance matrix representation of their tertiary structure.
 
 ## Environment
 
@@ -12,23 +12,36 @@ We generate from the downloaded full-atom protein files, a distance matrix repre
 
 - `requirements.txt`
   - Contains the required Python libraries.
-  - USER: Run `python -m pip install -r requirements.txt` in terminal.
+  - USER: Run `python3 -m pip install -r requirements.txt` in terminal.
 - `__main__.py`
   - Generates distance matrices from PDB files.
   - Stores and compresses the dataset as `.hdf5` files.
 
-## Generated dataset
+## Generated Datasets
 
-We extract non-overlapping fragments of lengths (64, 128, 256 and 512) for each protein structure starting at the first residue
+We extract non-overlapping fragments of lengths (64, 128, 256 and 512) for each protein structure starting at the first residue.
+
+Using the train data, we get:
 
 | Distance Matrix Size (aa) | Distance Matrices Count | Compressed HDF5 Size (GiB) | Memory Usage (GiB) |
-| :------------------: | :--------------------------: | :------------------------: | :----------------: |
-|          64          |           330,950            |             5.4            |        10.1        |
-|         128          |            98,728            |             6.4            |        12.0        |
-|         256          |            13,591            |             3.5            |         6.6        |
-|         512          |             779              |             0.7            |         1.5        |
+| :-----------------------: | :---------------------: | :------------------------: | :----------------: |
+|            64             |         330,950         |            5.4             |        10.1        |
+|            128            |         98,728          |            6.4             |        12.0        |
+|            256            |         13,591          |            3.5             |        6.6         |
+|            512            |           779           |            0.7             |        1.5         |
 
-NOTE: It is better to use uncompressed datasets; as the compressed ones slow down the loading.
+**NOTE**: It is better to use uncompressed datasets; as the compressed ones slow down the loading time.
+
+## Usage Guidelines
+
+In the terminal, change directory to the folder where the repo is located. Type the following:
+- On Windows: `python {command}`
+- On Linux/MacOS: `python3 {command}`
+
+Commands Examples:
+- `pdb-dataset --help` - Show script help
+- `pdb-dataset --mode=train` - Create train dataset (resolution 128x128 by default)
+- `pdb-dataset --mode=test -64 -128` - Create test dataset resolution 64x64 and 128x128
 
 ## References
 
