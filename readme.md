@@ -1,15 +1,21 @@
 # pdb-dataset
 
-Instead of focusing on the full atomic details, we chose to represent protein structures as **2D pairwise distance matrices** between **α-carbons** on the protein backbone. This approach allows us to retain essential structural information while simplifying the data we work with.
+We generate from the downloaded full-atom protein files, a distance matrix representation of their tertiary structure.
+
+## Environment
+
+- VS Code
+- Python 3.12
+- Libraries in `requirements.txt`
 
 ## Files and Their Functions
 
 - `requirements.txt`
-  - Contain the required Python libraries.
-  - Run `python -m pip install -r requirements.txt` in terminal.
-- `dataset_generate.py`
-  - Generate distance matrices from PDB files.
-  - Store and compress the dataset as `.hdf5` files.
+  - Contains the required Python libraries.
+  - USER: Run `python -m pip install -r requirements.txt` in terminal.
+- `__main__.py`
+  - Generates distance matrices from PDB files.
+  - Stores and compresses the dataset as `.hdf5` files.
 
 ## Generated dataset
 
@@ -21,6 +27,8 @@ We extract non-overlapping fragments of lengths (64, 128, 256 and 512) for each 
 |         128          |            98,728            |             6.4            |        12.0        |
 |         256          |            13,591            |             3.5            |         6.6        |
 |         512          |             779              |             0.7            |         1.5        |
+
+NOTE: It is better to use uncompressed datasets; as the compressed ones slow down the loading.
 
 ## References
 
